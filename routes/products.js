@@ -5,7 +5,12 @@ const Product = mongoose.model('products')
 module.exports = (app) => {
 
 app.get('/products', (req,res) => {
-   res.send(' ')
+  const FindCake = async () =>{
+    const cakes = await Product.find()
+    res.send(cakes)
+  }
+  FindCake()
+
 })
 
 app.post('/products', (req,res) => {
